@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>ATM </title>
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chango&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="stage">
+  
+
+  <div id="atm" class="abs"></div>
+  <div class="star" style="left:138px; top:100px"></div>
+  <div class="star" style="left:138px; top:250px"></div>
+  <div class="star" style="left:728px; top:100px"></div>
+  <div class="star" style="left:728px; top:250px"></div>
+
+  <div id="bezel" class="abs"></div>
+  <div id="screen" class="abs">
+    <span class="spark" style="left:40px; top:14px">✦</span>
+    <span class="spark" style="right:30px; top:30px; font-size:14px">✦</span>
+    <span class="spark" style="right:50px; bottom:16px; font-size:22px">✦</span>
+    <div id="bunny">
+      <svg viewBox="0 0 180 250">
+        <ellipse cx="90" cy="205" rx="56" ry="62" fill="#fff"/>
+        <ellipse cx="62" cy="48" rx="17" ry="44" fill="#fff" transform="rotate(-8 62 48)"/>
+        <ellipse cx="62" cy="54" rx="7.5" ry="29" fill="#f9a8c0" transform="rotate(-8 62 54)"/>
+        <ellipse cx="118" cy="48" rx="17" ry="44" fill="#fff" transform="rotate(8 118 48)"/>
+        <ellipse cx="118" cy="54" rx="7.5" ry="29" fill="#f9a8c0" transform="rotate(8 118 54)"/>
+        <circle cx="90" cy="122" r="54" fill="#fff"/>
+        <path d="M65 117 q8 -10 16 0" stroke="#5a4a55" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <path d="M99 117 q8 -10 16 0" stroke="#5a4a55" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <circle cx="62" cy="133" r="8.5" fill="#ffb3c6" opacity=".85"/>
+        <circle cx="118" cy="133" r="8.5" fill="#ffb3c6" opacity=".85"/>
+        <path d="M83 131 q3.5 6 7 0 q3.5 6 7 0" stroke="#5a4a55" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <g transform="rotate(12 124 186)">
+          <rect x="102" y="152" width="46" height="64" rx="7" fill="#f48fb1"/>
+          <rect x="102" y="164" width="46" height="9" fill="#7a4562" opacity=".8"/>
+          <text x="125" y="202" font-size="16" fill="#fff" text-anchor="middle">♥</text>
+        </g>
+        <ellipse cx="108" cy="208" rx="14" ry="12" fill="#fff"/>
+        <ellipse cx="76" cy="236" rx="14" ry="8" fill="#fff"/>
+      </svg>
+    </div>
+    <div id="content"></div>
+  </div>
+
+  <div id="panelWrap" class="abs"><div id="panel"><div id="keys"></div></div></div>
+
+  <div id="base" class="abs"></div>
+  <div id="heart" class="abs">♥</div>
+  <div id="tray" class="abs"></div>
+
+  <div id="module" class="abs"></div>
+  <div id="led" class="abs idle"></div>
+  <div id="housing" class="abs"></div>
+  <div id="opening" class="abs"></div>
+
+  <div id="wallet" class="abs"></div>
+  <div id="walletLabel" class="abs"></div>
+  <div id="pocket" class="abs"><small></small><div id="walletInfo"></div></div>
+
+  <div id="card" class="abs"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

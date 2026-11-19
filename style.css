@@ -1,0 +1,117 @@
+* { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: url("bg.jpg") center/cover no-repeat;
+  font-family: "Chango", cursive, sans-serif; }
+#stage { position: absolute; left: 50%; top: 50%; width: 960px; height: 720px; transform-origin: center;
+  background:
+    transparent linear-gradient(180deg, rgba(255,255,255,.1) 0, rgba(255,255,255,.05) 100%) repeat scroll 0 0;}
+.abs { position: absolute; }
+
+/* ---------- ATM gövdesi ---------- */
+#atm { left: 130px; top: 15px; width: 640px; height: 690px; border-radius: 44px 44px 20px 20px;
+  background: linear-gradient(180deg, #fff2dc 0, #f7dec0 100%, #fbe8cc 6%, #f6dcb8 100%);
+  box-shadow: 0 10px 0 #d9b98c, 0 24px 40px rgba(150,80,110,.28); border: 15px solid #f4a0b6;
+box-shadow: inset 0 8px 0 rgba(255,255,255,0.7), 0 12px 0 #d9b98c, 0 24px 40px rgba(150,80,110,0.25); }
+.star { position: absolute; width: 38px; height: 38px; background: #f6c860; filter: drop-shadow(0 3px 0 #d9a63f);
+  clip-path: polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+
+#bezel { left: 175px; top: 38px; width: 550px; height: 325px; border-radius: 36px;
+  background: linear-gradient(160deg, #bba2d1, #8d73aa);
+  box-shadow: inset 0 8px 16px rgba(0,0,0,.25), 0 5px 0 #6f5890; }
+#screen { left: 200px; top: 63px; width: 500px; height: 275px; border-radius: 16px; overflow: hidden;
+  background: linear-gradient(#74b6f2, #a9d6fb); border: 4px solid #6a5688;
+  box-shadow: inset 0 0 24px rgba(40,80,160,.35); display: flex; align-items: stretch; }
+#screen::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,.25) 0, rgba(255,255,255,0) 42%); }
+.spark { position: absolute; color: #fff6c4; opacity: .85; font-size: 18px; }
+#bunny { width: 150px; flex: none; align-self: flex-end; animation: bob 3s ease-in-out infinite; z-index: 1; }
+#bunny svg { width: 100%; display: block; }
+#bunny.wobble { animation: wobble .5s; }
+@keyframes bob { 50% { transform: translateY(-5px); } }
+@keyframes wobble { 20% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } 80% { transform: rotate(-3deg); } }
+
+#content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  gap: 10px; padding: 0 16px 0 4px; text-align: center; color: #fff; z-index: 1; }
+#content h2 { margin: 0; font-size: 32px; text-shadow: 0 2px 0 rgba(60,100,190,.45); }
+#content p { margin: 0; font-size: 18px; text-shadow: 0 1px 0 rgba(60,100,190,.4); }
+.pill { background: #f1dcf8; border-radius: 30px; padding: 14px 26px; min-width: 250px; box-shadow: inset 0 3px 6px rgba(120,80,160,.25); }
+.dots { display: flex; gap: 22px; justify-content: center; }
+.dot { width: 15px; height: 15px; border-radius: 50%; background: #5b6fd6; transition: transform .15s; }
+.dot.off { background: #c7b5e2; }
+.dot.pop { transform: scale(1.3); }
+.amount { font-size: 34px; font-weight: bold; color: #5b6fd6; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.col { display: flex; flex-direction: column; gap: 8px; width: 210px; }
+.sbtn { font: inherit; font-size: 17px; font-weight: bold; padding: 8px 16px; border: 0; border-radius: 16px;
+  background: rgba(255,255,255,.92); color: #6b4b9a; cursor: pointer; box-shadow: 0 4px 0 #9bb8e8; }
+.sbtn:active { transform: translateY(3px); box-shadow: 0 1px 0 #9bb8e8; }
+
+/* ---------- tuş takımı ---------- */
+#panelWrap { left: 150px; top: 372px; width: 600px; height: 213px; filter: drop-shadow(0 6px 0 #d6b98a); }
+#panel { width: 100%; height: 100%; clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+  background: linear-gradient(#fdf1da, #f1dcba); padding: 16px 62px 0; }
+#keys { display: grid; grid-template-columns: 1fr 1fr 1fr 118px; gap: 8px 12px; }
+.key { height: 40px; border: 1px solid #cdb48a; border-radius: 15px; font: inherit; font-size: 26px; font-weight: bold; color: #6b5560; cursor: pointer;
+  background: linear-gradient(#fbf0dc, #ecd9b8); box-shadow: 5px 7px 0 #cdb48a, inset 0 2px 0 #fff; }
+.key:active { transform: translateY(4px); box-shadow: 0 1px 0 #cdb48a, inset 0 2px 0 #fff; }
+.key.small { font-size: 17px; }
+.key.pink { background: linear-gradient(#f9a1b4, #ee7e98); box-shadow: 0 5px 0 #c25f78, inset 0 2px 0 #ffd0da; color: #7a3447; }
+.key.purple { background: linear-gradient(#c9acea, #a98ad4); box-shadow: 0 5px 0 #8467ad, inset 0 2px 0 #e6d6f8; color: #53397a; }
+.key.green { background: linear-gradient(#aadf90, #82c26a); box-shadow: 0 5px 0 #5f9a49, inset 0 2px 0 #d3f2c3; color: #2f5f22; }
+.key.pink:active { box-shadow: 0 1px 0 #c25f78; } .key.purple:active { box-shadow: 0 1px 0 #8467ad; } .key.green:active { box-shadow: 0 1px 0 #5f9a49; }
+
+/* ---------- alt kısım, para çıkışı ---------- */
+#base { left: 130px; top: 592px; width: 640px; height: 113px; border-radius: 0 0 14px 14px;
+  background: linear-gradient(#f59fb5, #e8829e); box-shadow: 5px 7px 0 #c9647f; }
+#heart { left: 434px; top: 590px; font-size: 34px; color: #f8d3d6; text-shadow: 0 2px 0 #cf7389; width: 32px; text-align: center; }
+#tray { left: 240px; top: 640px; width: 420px; height: 62px; border-radius: 14px; overflow: hidden;
+  background: linear-gradient(#4a3050, #7b5876); box-shadow: inset 0 6px 12px rgba(0,0,0,.5); border: 3px solid #cf7389; }
+#tray::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 12px; z-index: 20; pointer-events: none;
+  background: linear-gradient(#2e1c33, transparent); }
+
+.bill { position: absolute; width: 130px; height: 56px; border-radius: 8px; cursor: pointer; z-index: 5;
+  background: linear-gradient(135deg, #cdf0b4, #9bd682); border: 3px solid #6fb35a; box-shadow: 0 3px 0 #6fb35a;
+  display: flex; align-items: center; justify-content: flex-end; padding-right: 14px;
+  font-weight: 800; font-size: 20px; color: #3d7a2c; transform: rotate(var(--r));
+  animation: slideOut .55s cubic-bezier(.2,.9,.3,1.15); }
+.bill::before { content: ''; position: absolute; left: 12px; top: 10px; width: 30px; height: 30px; border-radius: 50%;
+  border: 3px solid #7fc069; opacity: .6; }
+.bill:hover { filter: brightness(1.06); }
+@keyframes slideOut { from { transform: translateY(-90px) rotate(var(--r)); } to { transform: translateY(0) rotate(var(--r)); } }
+
+/* ---------- kart girişi ---------- */
+#module { left: 770px; top: 350px; width: 150px; height: 200px; border-radius: 0 28px 28px 0;
+  background: linear-gradient(90deg, #2eb2d6, hsl(205, 56%, 60%)); box-shadow: 6px 6px 0 #d6b98a; }
+#led { left: 795px; top: 376px; width: 100px; height: 14px; border-radius: 8px; background: #aef03c; border: 2px solid #8bb83a;
+  box-shadow: 0 0 14px #aef03c; transition: opacity .2s; }
+#led.idle { animation: blink 1.6s infinite; }
+#led.ejected { animation: blink .45s infinite; }
+#led.off { opacity: .35; box-shadow: none; }
+@keyframes blink { 50% { opacity: .25; } }
+#housing { left: 790px; top: 416px; width: 110px; height: 78px; border-radius: 12px;
+  background: linear-gradient(#f59fb5, #e07f9a); box-shadow: 0 5px 0 #c2607c; }
+#opening { left: 800px; top: 448px; width: 90px; height: 14px; border-radius: 7px; background: #3a2540;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.6); }
+
+/* ---------- cüzdan ---------- */
+#wallet { left: 740px; top: 30px; width: 190px; height: 290px; border-radius: 34px; z-index: 25;
+  background: linear-gradient(rgba(255, 234, 169, 0.049), rgba(255,217,125,0.55));
+  border: 3px solid rgba(217, 166, 63, 0.552); box-shadow: 0 5px 0 rgba(217, 166, 63, 0.5);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  backdrop-filter: blur(6px); }
+#walletLabel { left: 740px; top: 42px; width: 190px; z-index: 26; text-align: center; color: #b98a2a; font-weight: bold; font-size: 15px; }
+#pocket { left: 755px; top: 165px; width: 160px; height: 140px; z-index: 26; border-radius: 22px;
+  background: linear-gradient(rgba(255,201,216,0.55), rgba(255,217,125,0.55));
+  border: 1px solid #fff; box-shadow: 0 5px 0 #e895ab00; backdrop-filter: blur(6px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+#pocket small { color: #ff009da9; font-weight: bold; font-size: 15px; text-shadow: 0 1px 0 #e895ab; }
+#walletInfo { position: relative; width: 130px; height: 85px; margin-top: 6px; }
+#walletInfo .bill { animation: none; cursor: pointer; left: 0; }
+
+#card { width: 84px; height: 54px; border-radius: 9px; cursor: grab; touch-action: none; z-index: 30;
+  background: linear-gradient(135deg, #f9a1c1, #f27aa4); border: 2px solid #d9578a;
+  box-shadow: 0 3px 0 #c24c7c; }
+#card::before { content: ''; position: absolute; left: 0; right: 0; top: 10px; height: 9px; background: #5b3a52; opacity: .75; }
+#card::after { content: '♥️'; position: absolute; right: 8px; bottom: 3px; color: #fff; font-size: 14px; }
+#card.dragging { cursor: grabbing; transform: rotate(-5deg) scale(1.1); }
+
+.deco { position: absolute; font-size: 110px; line-height: 1; filter: drop-shadow(0 6px 0 rgba(0,0,0,.08)); }
