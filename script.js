@@ -17,7 +17,7 @@ const HOME = { x: 793, y: 80 };
 
 // ---------- ekrana sığdır ----------
 function fit() {
-  const s = Math.min(innerWidth / 960, innerHeight / 720)*1.1;
+  const s = Math.min(innerWidth / 960, innerHeight / 840)*1.2;
   stage.style.transform = `translate(-50%, -50%) scale(${s})`;
 }
 addEventListener('resize', fit); fit();
@@ -264,7 +264,7 @@ async function dispense(amount) {
 async function takeBill(b, v) {
   if (b.dataset.taken) return; b.dataset.taken = 1;
   sfx.bill();
-  const x = 240 + b.offsetLeft + 3, y = 640 + b.offsetTop + 3;   // tepsinin içindeki yer → sahne koordinatı
+  const x = 240 + b.offsetLeft + 3, y = 725 + b.offsetTop + 3;   // tepsinin içindeki yer → sahne koordinatı
   const clone = b.cloneNode(true);
   clone.style.animation = 'none'; clone.style.left = x + 'px'; clone.style.top = y + 'px'; clone.style.zIndex = 40;
   stage.appendChild(clone); b.remove();
@@ -295,8 +295,8 @@ async function depositBill(index) {
   stage.appendChild(clone);
 
   const x0 = 770, y0 = 215;
-  const tx = 385, ty = 646;
-  const TLINE = 643;
+  const tx = 385, ty = 735;
+  const TLINE = 728;
 
   await tween(500, t => {
     const lift = Math.sin(t * Math.PI) * -40;
